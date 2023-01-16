@@ -7,9 +7,11 @@ import java.util.List;
 @Entity
 @Table(name = "categories")
 public class Category extends BaseEntity{
+
     @Length(min = 3, max = 15, message = "Wrong category length")
     private String name;
-    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
+
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Product> products;
 
     public Category() {

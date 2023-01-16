@@ -42,4 +42,14 @@ public class UserServiceImpl implements UserService {
                     }
                 });
     }
+
+    @Override
+    public User findUserById(long id) {
+        return userRepository.findUserById(id);
+    }
+
+    @Override
+    public long countAllUsers() {
+        return userRepository.count();
+    }
 }

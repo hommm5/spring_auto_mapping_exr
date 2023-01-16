@@ -44,4 +44,14 @@ public class CategoryServiceImpl implements CategoryService {
                 });
 
     }
+
+    @Override
+    public long countAllCategories() {
+        return categoryRepository.count();
+    }
+
+    @Override
+    public Category findCategoryById(long id) {
+        return categoryRepository.findById(id);
+    }
 }

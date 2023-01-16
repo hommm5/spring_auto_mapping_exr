@@ -21,21 +21,22 @@ public class Product extends BaseEntity {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Category> categories;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User buyer;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @NotNull(message = "Seller can not be missing")
     private User seller;
 
     public Product() {
     }
 
-    public Product(String name, BigDecimal price, long buyerId, long sellerId) {
+    public Product(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
 
     }
+
 
     public String getName() {
         return name;
